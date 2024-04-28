@@ -1,0 +1,71 @@
+{
+    "manifest_version": 2,
+
+    "name": "DoubleDouble.top Search",
+    "short_name": "DoubleDoubleSearch",
+    "description": "Adds DoubleDouble.top as search engine. Also allows you to open downloads in separate tabs.",
+    "version": "1.0.0",
+
+    "browser_specific_settings": {
+        "gecko": {
+            "strict_min_version": "65.0"
+        }
+    },
+
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "DoubleDouble.top",
+            "search_url": "https://doubledouble.top/?search={searchTerms}",
+            "keyword": "doubledouble",
+            "favicon_url": "./assets/icon_500.png",
+            "is_default": false,
+            "encoding": "UTF-8"
+        }
+    },
+
+    "content_scripts": [{
+            "matches": [
+                "*://*.doubledouble.top/?search=*"
+            ],
+            "js": [
+                "./search.js"
+            ],
+            "run_at": "document_end"
+        }, {
+            "matches": [
+                "*://*.doubledouble.top/?download=*"
+            ],
+            "js": [
+                "./download.js"
+            ],
+            "run_at": "document_idle"
+        }, {
+            "matches": [
+                "*://*.doubledouble.top/*"
+            ],
+            "js": [
+                "./replaceButtons.js"
+            ],
+            "css": [
+                "./style.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+
+    "icons": {
+        "32": "./assets/icon_32.png",
+        "48": "./assets/icon_48.png",
+        "64": "./assets/icon_64.png",
+        "96": "./assets/icon_96.png",
+        "128": "./assets/icon_128.png",
+        "256": "./assets/icon_256.png",
+        "500": "./assets/icon_500.png"
+    },
+
+    "author": "moony aka Danila Kononov",
+    "developer": {
+        "name": "moony aka Danila Kononov",
+        "url": "https://github.com/i-Moony/double-double-search/"
+    }
+}

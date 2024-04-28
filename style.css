@@ -1,0 +1,17 @@
+a.spty {
+    border: 0;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: bold;
+    margin-right: 4px;
+    background: #1DB954;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+}
+
+.metadata div {
+    margin-top: 5px;
+}
